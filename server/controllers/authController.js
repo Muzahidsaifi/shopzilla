@@ -20,47 +20,36 @@ exports.register = async (req, res) => {
       return res.status(400).json({ error: 'Name, email and password are required.' });
     }
 
-    // Check if email already exists and verified
     const existingUser = await User.findOne({ email });
     if (existingUser && existingUser.emailVerified) {
       return res.status(400).json({ error: 'Email already registered. Please login.' });
     }
 
-
     const otp = generateOTP();
-
     console.log(`🔐 OTP for ${email}: ${otp}`);
-    
     const otpExpiry = generateOTPExpiry();
 
     if (existingUser && !existingUser.emailVerified) {
-      // Update OTP for existing unverified user
       existingUser.name = name;
       existingUser.emailOTP = otp;
       existingUser.emailOTPExpiry = otpExpiry;
-      if (password) {
-        existingUser.password = password;
-      }
+      if (password) existingUser.password = password;
       await existingUser.save();
     } else {
-      // Create new unverified user
       await User.create({
-        name,
-        email,
-        password,
-        phone,
+        name, email, password, phone,
         emailVerified: false,
         emailOTP: otp,
         emailOTPExpiry: otpExpiry,
       });
     }
 
-    // Send OTP email
-    await sendEmail({
+    // Send OTP email (non-blocking)
+    sendEmail({
       to: email,
       subject: '🔐 Verify Your Email - ShopZilla OTP',
       html: otpEmailTemplate(name, otp),
-    });
+    }).catch(err => console.error('❌ Email error:', err.message));
 
     res.status(200).json({
       success: true,
@@ -72,7 +61,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// STEP 2: Verify OTP — activate account and return token
+// STEP 2: Verify OTP
 exports.verifyOTP = async (req, res) => {
   try {
     const { email, otp } = req.body;
@@ -81,37 +70,29 @@ exports.verifyOTP = async (req, res) => {
     }
 
     const user = await User.findOne({ email }).select('+emailOTP +emailOTPExpiry');
-    if (!user) {
-      return res.status(404).json({ error: 'User not found.' });
-    }
+    if (!user) return res.status(404).json({ error: 'User not found.' });
 
-    // Check OTP
     if (user.emailOTP !== otp) {
       return res.status(400).json({ error: 'Invalid OTP. Please try again.' });
     }
 
-    // Check expiry
     if (new Date() > user.emailOTPExpiry) {
       return res.status(400).json({ error: 'OTP expired. Please request a new one.' });
     }
 
-    // Activate account
     user.emailVerified = true;
     user.emailOTP = undefined;
     user.emailOTPExpiry = undefined;
     await user.save();
 
-    // Send welcome email
     sendEmail({
       to: email,
       subject: '🎉 Welcome to ShopZilla!',
-      html: `
-        <div style="font-family:sans-serif;max-width:480px;margin:auto;padding:32px;background:#fff;border-radius:16px;">
-          <h2 style="color:#f97316;">Welcome to ShopZilla, ${user.name}! 🎉</h2>
-          <p>Your account has been verified successfully. Start shopping now!</p>
-          <a href="${process.env.CLIENT_URL}" style="background:#f97316;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Start Shopping</a>
-        </div>
-      `,
+      html: `<div style="font-family:sans-serif;max-width:480px;margin:auto;padding:32px;background:#fff;border-radius:16px;">
+        <h2 style="color:#f97316;">Welcome to ShopZilla, ${user.name}! 🎉</h2>
+        <p>Your account has been verified successfully. Start shopping now!</p>
+        <a href="${process.env.CLIENT_URL}" style="background:#f97316;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Start Shopping</a>
+      </div>`,
     }).catch(console.error);
 
     sendTokenResponse(user, 200, res);
@@ -125,12 +106,8 @@ exports.resendOTP = async (req, res) => {
   try {
     const { email } = req.body;
     const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ error: 'User not found.' });
-    }
-    if (user.emailVerified) {
-      return res.status(400).json({ error: 'Email already verified.' });
-    }
+    if (!user) return res.status(404).json({ error: 'User not found.' });
+    if (user.emailVerified) return res.status(400).json({ error: 'Email already verified.' });
 
     const otp = generateOTP();
     const otpExpiry = generateOTPExpiry();
@@ -138,11 +115,11 @@ exports.resendOTP = async (req, res) => {
     user.emailOTPExpiry = otpExpiry;
     await user.save();
 
-    await sendEmail({
+    sendEmail({
       to: email,
       subject: '🔐 New OTP - ShopZilla',
       html: otpEmailTemplate(user.name, otp),
-    });
+    }).catch(err => console.error('❌ Email error:', err.message));
 
     res.json({ success: true, message: 'New OTP sent to your email.' });
   } catch (err) {
@@ -167,18 +144,18 @@ exports.login = async (req, res) => {
       return res.status(401).json({ error: 'Account has been deactivated.' });
     }
 
-    // Check if email is verified
     if (!user.emailVerified) {
-      // Resend OTP
       const otp = generateOTP();
       user.emailOTP = otp;
       user.emailOTPExpiry = generateOTPExpiry();
       await user.save();
-      await sendEmail({
+
+      sendEmail({
         to: email,
         subject: '🔐 Verify Your Email - ShopZilla',
         html: otpEmailTemplate(user.name, otp),
-      });
+      }).catch(err => console.error('❌ Email error:', err.message));
+
       return res.status(403).json({
         error: 'Email not verified.',
         requiresVerification: true,
