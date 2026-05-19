@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 
-const URI = "mongodb://shopzilla_user:pcaL5CAQc8b5qqIv@ac-8u8zpjs-shard-00-00.pj9fwvx.mongodb.net:27017,ac-8u8zpjs-shard-00-01.pj9fwvx.mongodb.net:27017,ac-8u8zpjs-shard-00-02.pj9fwvx.mongodb.net:27017/shopzilla?ssl=true&authSource=admin";
+require('dotenv').config();
+const URI = process.env.MONGODB_URI;
+
 mongoose.connect(URI).then(async () => {
   console.log('✅ Connected to Atlas!');
   const db = mongoose.connection.db;
