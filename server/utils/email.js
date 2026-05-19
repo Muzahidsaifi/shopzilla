@@ -2,8 +2,8 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-  port: process.env.EMAIL_PORT || 587,
-  secure: false,
+  port: parseInt(process.env.EMAIL_PORT) || 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -19,6 +19,7 @@ exports.sendEmail = async ({ to, subject, html, text }) => {
     console.log(`[Email skipped] To: ${to}, Subject: ${subject}`);
     return;
   }
+
   const mailOptions = {
     from: process.env.EMAIL_FROM || 'ShopZilla <noreply@shopzilla.com>',
     to,
@@ -26,6 +27,7 @@ exports.sendEmail = async ({ to, subject, html, text }) => {
     html,
     text
   };
+
   try {
     const result = await transporter.sendMail(mailOptions);
     console.log('✅ Email sent:', result.messageId);
