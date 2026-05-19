@@ -1,0 +1,705 @@
+[
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420bc",
+    "name": "Apple iPhone 15 Pro Max 256GB",
+    "description": "The most powerful iPhone ever. Titanium design, A17 Pro chip, and a revolutionary camera system.",
+    "price": 134900,
+    "originalPrice": 159900,
+    "discount": 16,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Apple",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/1a1a2e/f97316?text=iPhone+15",
+        "public_id": "iphone15",
+        "_id": "6a0c1b9881ad4b0bf7a420bd"
+      }
+    ],
+    "stock": 50,
+    "sold": 0,
+    "tags": [
+      "smartphone",
+      "apple",
+      "ios"
+    ],
+    "numReviews": 2341,
+    "rating": 4.8,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.212Z",
+    "updatedAt": "2026-05-19T08:13:12.212Z",
+    "slug": "apple-iphone-15-pro-max-256gb-1779178392213",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420bf",
+    "name": "Samsung Galaxy S24 Ultra 512GB",
+    "description": "Galaxy AI is here. The most note-worthy. Unmatched performance with Snapdragon 8 Gen 3.",
+    "price": 124999,
+    "originalPrice": 149999,
+    "discount": 17,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Samsung",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/0a0a23/3498db?text=Galaxy+S24",
+        "public_id": "s24ultra",
+        "_id": "6a0c1b9881ad4b0bf7a420c0"
+      }
+    ],
+    "stock": 35,
+    "sold": 0,
+    "tags": [
+      "smartphone",
+      "samsung",
+      "android"
+    ],
+    "numReviews": 1876,
+    "rating": 4.7,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.217Z",
+    "updatedAt": "2026-05-19T08:13:12.217Z",
+    "slug": "samsung-galaxy-s24-ultra-512gb-1779178392217",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420c2",
+    "name": "Sony WH-1000XM5 Headphones",
+    "description": "Industry-leading noise canceling with 30-hour battery and exceptional sound quality.",
+    "price": 26990,
+    "originalPrice": 34990,
+    "discount": 23,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Sony",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/1c1c1c/f97316?text=Sony+WH1000XM5",
+        "public_id": "sony_xm5",
+        "_id": "6a0c1b9881ad4b0bf7a420c3"
+      }
+    ],
+    "stock": 120,
+    "sold": 0,
+    "tags": [
+      "headphones",
+      "sony",
+      "noise-cancelling"
+    ],
+    "numReviews": 5621,
+    "rating": 4.9,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.221Z",
+    "updatedAt": "2026-05-19T08:13:12.221Z",
+    "slug": "sony-wh-1000xm5-headphones-1779178392221",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420c5",
+    "name": "MacBook Air M3 13-inch",
+    "description": "Supercharged by M3, the latest chip in Apple's lineup, MacBook Air is impossibly thin.",
+    "price": 114900,
+    "originalPrice": 129900,
+    "discount": 12,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Apple",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/f5f5f5/1a1a2e?text=MacBook+Air+M3",
+        "public_id": "macbook_m3",
+        "_id": "6a0c1b9881ad4b0bf7a420c6"
+      }
+    ],
+    "stock": 25,
+    "sold": 0,
+    "tags": [
+      "laptop",
+      "apple",
+      "macbook"
+    ],
+    "numReviews": 987,
+    "rating": 4.9,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.224Z",
+    "updatedAt": "2026-05-19T08:13:12.224Z",
+    "slug": "macbook-air-m3-13-inch-1779178392224",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420c8",
+    "name": "iPad Pro 12.9\" M4 Chip",
+    "description": "Thin. Light. Epic. The iPad Pro M4 is the thinnest Apple product ever.",
+    "price": 109900,
+    "originalPrice": 119900,
+    "discount": 8,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Apple",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/e8f4f8/1a1a2e?text=iPad+Pro",
+        "public_id": "ipad_pro",
+        "_id": "6a0c1b9881ad4b0bf7a420c9"
+      }
+    ],
+    "stock": 40,
+    "sold": 0,
+    "tags": [
+      "tablet",
+      "apple",
+      "ipad"
+    ],
+    "numReviews": 432,
+    "rating": 4.8,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.227Z",
+    "updatedAt": "2026-05-19T08:13:12.227Z",
+    "slug": "ipad-pro-12-9-m4-chip-1779178392227",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420cb",
+    "name": "Dell XPS 15 OLED Laptop",
+    "description": "The XPS 15 OLED delivers exceptional display performance with InfinityEdge design.",
+    "price": 164990,
+    "originalPrice": 184990,
+    "discount": 11,
+    "category": "6a0c1b9881ad4b0bf7a420ac",
+    "brand": "Dell",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/00274c/f97316?text=Dell+XPS+15",
+        "public_id": "dell_xps15",
+        "_id": "6a0c1b9881ad4b0bf7a420cc"
+      }
+    ],
+    "stock": 18,
+    "sold": 0,
+    "tags": [
+      "laptop",
+      "dell",
+      "oled"
+    ],
+    "numReviews": 234,
+    "rating": 4.6,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.231Z",
+    "updatedAt": "2026-05-19T08:13:12.231Z",
+    "slug": "dell-xps-15-oled-laptop-1779178392231",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420ce",
+    "name": "Nike Air Max 270 React",
+    "description": "Nike's biggest Air unit yet delivers unrivaled, all-day comfort.",
+    "price": 7495,
+    "originalPrice": 10995,
+    "discount": 32,
+    "category": "6a0c1b9881ad4b0bf7a420ae",
+    "brand": "Nike",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/f97316/white?text=Nike+Air+Max",
+        "public_id": "nike_airmax",
+        "_id": "6a0c1b9881ad4b0bf7a420cf"
+      }
+    ],
+    "stock": 200,
+    "sold": 0,
+    "tags": [
+      "shoes",
+      "nike",
+      "running"
+    ],
+    "numReviews": 3421,
+    "rating": 4.5,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.234Z",
+    "updatedAt": "2026-05-19T08:13:12.234Z",
+    "slug": "nike-air-max-270-react-1779178392234",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420d1",
+    "name": "Levi's 511 Slim Fit Jeans",
+    "description": "Classic slim fit jeans in authentic stretch denim.",
+    "price": 2799,
+    "originalPrice": 3999,
+    "discount": 30,
+    "category": "6a0c1b9881ad4b0bf7a420ae",
+    "brand": "Levi's",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/1a237e/white?text=Levis+511",
+        "public_id": "levis_511",
+        "_id": "6a0c1b9881ad4b0bf7a420d2"
+      }
+    ],
+    "stock": 300,
+    "sold": 0,
+    "tags": [
+      "jeans",
+      "levis",
+      "denim"
+    ],
+    "numReviews": 8765,
+    "rating": 4.4,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.237Z",
+    "updatedAt": "2026-05-19T08:13:12.237Z",
+    "slug": "levi-s-511-slim-fit-jeans-1779178392237",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420d4",
+    "name": "Adidas Ultraboost 23",
+    "description": "The iconic running shoe updated for 2023 with BOOST cushioning.",
+    "price": 12999,
+    "originalPrice": 15999,
+    "discount": 19,
+    "category": "6a0c1b9881ad4b0bf7a420ae",
+    "brand": "Adidas",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/000000/white?text=Ultraboost+23",
+        "public_id": "adidas_ub23",
+        "_id": "6a0c1b9881ad4b0bf7a420d5"
+      }
+    ],
+    "stock": 85,
+    "sold": 0,
+    "tags": [
+      "shoes",
+      "adidas",
+      "running"
+    ],
+    "numReviews": 2134,
+    "rating": 4.7,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.240Z",
+    "updatedAt": "2026-05-19T08:13:12.240Z",
+    "slug": "adidas-ultraboost-23-1779178392240",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420d7",
+    "name": "Puma Everyday Hoodie",
+    "description": "Soft and cozy everyday hoodie with Puma signature branding.",
+    "price": 1799,
+    "originalPrice": 2499,
+    "discount": 28,
+    "category": "6a0c1b9881ad4b0bf7a420ae",
+    "brand": "Puma",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/212121/f97316?text=Puma+Hoodie",
+        "public_id": "puma_hoodie",
+        "_id": "6a0c1b9881ad4b0bf7a420d8"
+      }
+    ],
+    "stock": 150,
+    "sold": 0,
+    "tags": [
+      "hoodie",
+      "puma",
+      "sportswear"
+    ],
+    "numReviews": 654,
+    "rating": 4.2,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.242Z",
+    "updatedAt": "2026-05-19T08:13:12.242Z",
+    "slug": "puma-everyday-hoodie-1779178392242",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420da",
+    "name": "Dyson V15 Detect Cordless Vacuum",
+    "description": "Laser-guided dust detection and the most powerful Dyson cordless vacuum.",
+    "price": 52900,
+    "originalPrice": 59900,
+    "discount": 12,
+    "category": "6a0c1b9881ad4b0bf7a420b0",
+    "brand": "Dyson",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/c8a876/1a1a1a?text=Dyson+V15",
+        "public_id": "dyson_v15",
+        "_id": "6a0c1b9881ad4b0bf7a420db"
+      }
+    ],
+    "stock": 30,
+    "sold": 0,
+    "tags": [
+      "vacuum",
+      "dyson",
+      "cordless"
+    ],
+    "numReviews": 1234,
+    "rating": 4.8,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.247Z",
+    "updatedAt": "2026-05-19T08:13:12.247Z",
+    "slug": "dyson-v15-detect-cordless-vacuum-1779178392247",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420dd",
+    "name": "Philips Air Fryer XL 6.2L",
+    "description": "Rapid Air technology for guilt-free crispy results with little to no oil.",
+    "price": 7999,
+    "originalPrice": 11999,
+    "discount": 33,
+    "category": "6a0c1b9881ad4b0bf7a420b0",
+    "brand": "Philips",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/e8e8e8/1a1a1a?text=Philips+AirFryer",
+        "public_id": "philips_af",
+        "_id": "6a0c1b9881ad4b0bf7a420de"
+      }
+    ],
+    "stock": 75,
+    "sold": 0,
+    "tags": [
+      "airfryer",
+      "philips",
+      "kitchen"
+    ],
+    "numReviews": 4521,
+    "rating": 4.6,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.249Z",
+    "updatedAt": "2026-05-19T08:13:12.249Z",
+    "slug": "philips-air-fryer-xl-6-2l-1779178392249",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420e0",
+    "name": "IKEA MALM Bed Frame King",
+    "description": "Minimalist bedroom frame in birch veneer, built for lasting comfort.",
+    "price": 24999,
+    "originalPrice": 29999,
+    "discount": 17,
+    "category": "6a0c1b9881ad4b0bf7a420b0",
+    "brand": "IKEA",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/f5ede3/555?text=IKEA+MALM",
+        "public_id": "ikea_malm",
+        "_id": "6a0c1b9881ad4b0bf7a420e1"
+      }
+    ],
+    "stock": 12,
+    "sold": 0,
+    "tags": [
+      "bed",
+      "ikea",
+      "furniture"
+    ],
+    "numReviews": 876,
+    "rating": 4.3,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.252Z",
+    "updatedAt": "2026-05-19T08:13:12.252Z",
+    "slug": "ikea-malm-bed-frame-king-1779178392252",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420e3",
+    "name": "Decathlon Trek 300 Mountain Bike",
+    "description": "21-speed mountain bike perfect for trail riding and everyday use.",
+    "price": 15999,
+    "originalPrice": 19999,
+    "discount": 20,
+    "category": "6a0c1b9881ad4b0bf7a420b2",
+    "brand": "Decathlon",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/27ae60/white?text=Trek+300+MTB",
+        "public_id": "trek300",
+        "_id": "6a0c1b9881ad4b0bf7a420e4"
+      }
+    ],
+    "stock": 20,
+    "sold": 0,
+    "tags": [
+      "bicycle",
+      "mountain bike",
+      "outdoor"
+    ],
+    "numReviews": 345,
+    "rating": 4.5,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": true,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.255Z",
+    "updatedAt": "2026-05-19T08:13:12.255Z",
+    "slug": "decathlon-trek-300-mountain-bike-1779178392255",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420e6",
+    "name": "Yoga Mat Premium 6mm",
+    "description": "Non-slip, extra-thick yoga mat for maximum comfort during practice.",
+    "price": 1299,
+    "originalPrice": 1999,
+    "discount": 35,
+    "category": "6a0c1b9881ad4b0bf7a420b2",
+    "brand": "Decathlon",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/9b59b6/white?text=Yoga+Mat",
+        "public_id": "yoga_mat",
+        "_id": "6a0c1b9881ad4b0bf7a420e7"
+      }
+    ],
+    "stock": 500,
+    "sold": 0,
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat"
+    ],
+    "numReviews": 3210,
+    "rating": 4.4,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.257Z",
+    "updatedAt": "2026-05-19T08:13:12.257Z",
+    "slug": "yoga-mat-premium-6mm-1779178392257",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420e9",
+    "name": "Atomic Habits — James Clear",
+    "description": "Tiny Changes, Remarkable Results. The definitive guide to breaking bad habits and building good ones.",
+    "price": 349,
+    "originalPrice": 499,
+    "discount": 30,
+    "category": "6a0c1b9881ad4b0bf7a420b4",
+    "brand": "Random House",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/ffa500/white?text=Atomic+Habits",
+        "public_id": "atomic_habits",
+        "_id": "6a0c1b9881ad4b0bf7a420ea"
+      }
+    ],
+    "stock": 1000,
+    "sold": 0,
+    "tags": [
+      "self-help",
+      "habits",
+      "productivity"
+    ],
+    "numReviews": 54321,
+    "rating": 4.9,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.259Z",
+    "updatedAt": "2026-05-19T08:13:12.259Z",
+    "slug": "atomic-habits-james-clear-1779178392261",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420ec",
+    "name": "The Psychology of Money",
+    "description": "Timeless lessons on wealth, greed, and happiness by Morgan Housel.",
+    "price": 279,
+    "originalPrice": 399,
+    "discount": 30,
+    "category": "6a0c1b9881ad4b0bf7a420b4",
+    "brand": "Jaico Publishing",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/2c3e50/white?text=Psychology+of+Money",
+        "public_id": "psych_money",
+        "_id": "6a0c1b9881ad4b0bf7a420ed"
+      }
+    ],
+    "stock": 800,
+    "sold": 0,
+    "tags": [
+      "finance",
+      "money",
+      "investing"
+    ],
+    "numReviews": 23456,
+    "rating": 4.8,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.265Z",
+    "updatedAt": "2026-05-19T08:13:12.265Z",
+    "slug": "the-psychology-of-money-1779178392265",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420ef",
+    "name": "Cetaphil Gentle Skin Cleanser 500ml",
+    "description": "Gentle, non-foaming formula for normal to sensitive skin.",
+    "price": 649,
+    "originalPrice": 849,
+    "discount": 24,
+    "category": "6a0c1b9881ad4b0bf7a420b6",
+    "brand": "Cetaphil",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/e8f5e9/2e7d32?text=Cetaphil",
+        "public_id": "cetaphil",
+        "_id": "6a0c1b9881ad4b0bf7a420f0"
+      }
+    ],
+    "stock": 400,
+    "sold": 0,
+    "tags": [
+      "skincare",
+      "cleanser",
+      "gentle"
+    ],
+    "numReviews": 9876,
+    "rating": 4.7,
+    "isFeatured": false,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.267Z",
+    "updatedAt": "2026-05-19T08:13:12.267Z",
+    "slug": "cetaphil-gentle-skin-cleanser-500ml-1779178392267",
+    "__v": 0
+  },
+  {
+    "_id": "6a0c1b9881ad4b0bf7a420f2",
+    "name": "L'Oreal Paris Serum Hyaluronic Acid",
+    "description": "1.5% pure hyaluronic acid for intense hydration and plumping.",
+    "price": 749,
+    "originalPrice": 999,
+    "discount": 25,
+    "category": "6a0c1b9881ad4b0bf7a420b6",
+    "brand": "L'Oreal",
+    "images": [
+      {
+        "url": "https://placehold.co/600x600/e8d5b7/8b4513?text=Hyaluronic+Serum",
+        "public_id": "loreal_serum",
+        "_id": "6a0c1b9881ad4b0bf7a420f3"
+      }
+    ],
+    "stock": 200,
+    "sold": 0,
+    "tags": [
+      "serum",
+      "hyaluronic acid",
+      "anti-aging"
+    ],
+    "numReviews": 5432,
+    "rating": 4.5,
+    "isFeatured": true,
+    "isActive": true,
+    "freeShipping": false,
+    "shippingCost": 0,
+    "specifications": [],
+    "variants": [],
+    "reviews": [],
+    "createdAt": "2026-05-19T08:13:12.269Z",
+    "updatedAt": "2026-05-19T08:13:12.269Z",
+    "slug": "l-oreal-paris-serum-hyaluronic-acid-1779178392269",
+    "__v": 0
+  }
+]
