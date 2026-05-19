@@ -23,13 +23,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await dispatch(loginUser(form));
-
     if (loginUser.fulfilled.match(result)) {
       toast.success('Welcome back! 👋');
       navigate(from, { replace: true });
     } else {
       const errData = result.payload;
-      // Check if email not verified
       if (errData?.includes?.('not verified') || result?.error?.message?.includes('403')) {
         setNeedsVerification(true);
         setVerificationEmail(form.email);
@@ -76,7 +74,6 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 hero-mesh">
       <div className="w-full max-w-md">
-        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -146,13 +143,6 @@ export default function Login() {
               )}
             </button>
           </form>
-
-          {/* Demo credentials */}
-          <div className="mt-4 p-3 bg-[var(--bg-secondary)] rounded-xl text-xs text-[var(--text-muted)] space-y-1">
-            <p className="font-semibold text-[var(--text-secondary)]">Demo Credentials:</p>
-            <p>👑 Admin: admin@shopzilla.com / Admin@123456</p>
-            <p>👤 User: demo@shopzilla.com / Demo@123</p>
-          </div>
 
           <p className="text-center text-sm text-[var(--text-secondary)] mt-6">
             Don't have an account?{' '}

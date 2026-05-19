@@ -26,7 +26,11 @@ exports.register = async (req, res) => {
       return res.status(400).json({ error: 'Email already registered. Please login.' });
     }
 
+
     const otp = generateOTP();
+
+    console.log(`🔐 OTP for ${email}: ${otp}`);
+    
     const otpExpiry = generateOTPExpiry();
 
     if (existingUser && !existingUser.emailVerified) {
