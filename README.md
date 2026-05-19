@@ -290,3 +290,11 @@ npm run build
 ## 📄 License
 
 MIT License — feel free to use this project for learning or as a base for your own e-commerce platform.
+
+
+
+Username: saifimuzahid99
+Password: Muzahid@1234
+Email:    muzahidsaifi483@gmail.com
+
+pcaL5CAQc8b5qqIv
