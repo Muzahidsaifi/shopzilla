@@ -12,7 +12,7 @@ const sendTokenResponse = (user, statusCode, res) => {
   res.status(statusCode).json({ success: true, token, user });
 };
 
-// STEP 1: Register — send OTP, don't create account yet
+// STEP 1: Register — send OTP only
 exports.register = async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
@@ -20,14 +20,13 @@ exports.register = async (req, res) => {
       return res.status(400).json({ error: 'Name, email and password are required.' });
     }
 
+    const otp = generateOTP();
+    const otpExpiry = generateOTPExpiry();
+
     const existingUser = await User.findOne({ email });
     if (existingUser && existingUser.emailVerified) {
       return res.status(400).json({ error: 'Email already registered. Please login.' });
     }
-
-    const otp = generateOTP();
-    console.log(`🔐 OTP for ${email}: ${otp}`);
-    const otpExpiry = generateOTPExpiry();
 
     if (existingUser && !existingUser.emailVerified) {
       existingUser.name = name;
@@ -44,16 +43,20 @@ exports.register = async (req, res) => {
       });
     }
 
-    // Send OTP email (non-blocking)
-    sendEmail({
-      to: email,
-      subject: '🔐 Verify Your Email - ShopZilla OTP',
-      html: otpEmailTemplate(name, otp),
-    }).catch(err => console.error('❌ Email error:', err.message));
+    // Send OTP email — only once
+    try {
+      await sendEmail({
+        to: email,
+        subject: '🔐 Verify Your Email - ShopZilla OTP',
+        html: otpEmailTemplate(name, otp),
+      });
+    } catch (emailErr) {
+      console.error('Email failed:', emailErr.message);
+    }
 
     res.status(200).json({
       success: true,
-      message: `OTP sent to ${email}. Please verify to complete registration.`,
+      message: `OTP sent to ${email}.`,
       email,
     });
   } catch (err) {
@@ -70,12 +73,12 @@ exports.verifyOTP = async (req, res) => {
     }
 
     const user = await User.findOne({ email }).select('+emailOTP +emailOTPExpiry');
-    if (!user) return res.status(404).json({ error: 'User not found.' });
-
+    if (!user) {
+      return res.status(404).json({ error: 'User not found.' });
+    }
     if (user.emailOTP !== otp) {
       return res.status(400).json({ error: 'Invalid OTP. Please try again.' });
     }
-
     if (new Date() > user.emailOTPExpiry) {
       return res.status(400).json({ error: 'OTP expired. Please request a new one.' });
     }
@@ -85,15 +88,21 @@ exports.verifyOTP = async (req, res) => {
     user.emailOTPExpiry = undefined;
     await user.save();
 
-    sendEmail({
-      to: email,
-      subject: '🎉 Welcome to ShopZilla!',
-      html: `<div style="font-family:sans-serif;max-width:480px;margin:auto;padding:32px;background:#fff;border-radius:16px;">
-        <h2 style="color:#f97316;">Welcome to ShopZilla, ${user.name}! 🎉</h2>
-        <p>Your account has been verified successfully. Start shopping now!</p>
-        <a href="${process.env.CLIENT_URL}" style="background:#f97316;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Start Shopping</a>
-      </div>`,
-    }).catch(console.error);
+    // Welcome email
+    try {
+      await sendEmail({
+        to: email,
+        subject: '🎉 Welcome to ShopZilla!',
+        html: `
+          <div style="font-family:sans-serif;max-width:480px;margin:auto;padding:32px;">
+            <h2 style="color:#f97316;">Welcome to ShopZilla, ${user.name}! 🎉</h2>
+            <p>Your account has been verified. Start shopping now!</p>
+          </div>
+        `,
+      });
+    } catch (emailErr) {
+      console.error('Welcome email failed:', emailErr.message);
+    }
 
     sendTokenResponse(user, 200, res);
   } catch (err) {
@@ -115,13 +124,19 @@ exports.resendOTP = async (req, res) => {
     user.emailOTPExpiry = otpExpiry;
     await user.save();
 
-    sendEmail({
-      to: email,
-      subject: '🔐 New OTP - ShopZilla',
-      html: otpEmailTemplate(user.name, otp),
-    }).catch(err => console.error('❌ Email error:', err.message));
+    
 
-    res.json({ success: true, message: 'New OTP sent to your email.' });
+    try {
+      await sendEmail({
+        to: email,
+        subject: '🔐 New OTP - ShopZilla',
+        html: otpEmailTemplate(user.name, otp),
+      });
+    } catch (emailErr) {
+      console.error('Resend email failed:', emailErr.message);
+    }
+
+    res.json({ success: true, message: 'New OTP sent.' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -139,28 +154,28 @@ exports.login = async (req, res) => {
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ error: 'Invalid email or password.' });
     }
-
     if (!user.isActive) {
-      return res.status(401).json({ error: 'Account has been deactivated.' });
+      return res.status(401).json({ error: 'Account deactivated.' });
     }
-
     if (!user.emailVerified) {
       const otp = generateOTP();
       user.emailOTP = otp;
       user.emailOTPExpiry = generateOTPExpiry();
       await user.save();
-
-      sendEmail({
-        to: email,
-        subject: '🔐 Verify Your Email - ShopZilla',
-        html: otpEmailTemplate(user.name, otp),
-      }).catch(err => console.error('❌ Email error:', err.message));
-
+      try {
+        await sendEmail({
+          to: email,
+          subject: '🔐 Verify Your Email - ShopZilla',
+          html: otpEmailTemplate(user.name, otp),
+        });
+      } catch (emailErr) {
+        console.error('Login OTP email failed:', emailErr.message);
+      }
       return res.status(403).json({
         error: 'Email not verified.',
         requiresVerification: true,
         email,
-        message: 'A new OTP has been sent to your email.',
+        message: 'OTP sent to your email.',
       });
     }
 
@@ -183,8 +198,7 @@ exports.updateProfile = async (req, res) => {
   try {
     const { name, phone, avatar } = req.body;
     const user = await User.findByIdAndUpdate(
-      req.user.id,
-      { name, phone, avatar },
+      req.user.id, { name, phone, avatar },
       { new: true, runValidators: true }
     );
     res.json({ success: true, user });
@@ -211,9 +225,7 @@ exports.updatePassword = async (req, res) => {
 exports.addAddress = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    if (req.body.isDefault) {
-      user.addresses.forEach(addr => addr.isDefault = false);
-    }
+    if (req.body.isDefault) user.addresses.forEach(a => a.isDefault = false);
     user.addresses.push(req.body);
     await user.save();
     res.json({ success: true, addresses: user.addresses });
@@ -227,9 +239,7 @@ exports.updateAddress = async (req, res) => {
     const user = await User.findById(req.user.id);
     const addr = user.addresses.id(req.params.addressId);
     if (!addr) return res.status(404).json({ error: 'Address not found.' });
-    if (req.body.isDefault) {
-      user.addresses.forEach(a => a.isDefault = false);
-    }
+    if (req.body.isDefault) user.addresses.forEach(a => a.isDefault = false);
     Object.assign(addr, req.body);
     await user.save();
     res.json({ success: true, addresses: user.addresses });

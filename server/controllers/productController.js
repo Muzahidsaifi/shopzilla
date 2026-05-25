@@ -106,11 +106,11 @@ exports.getProduct = async (req, res) => {
     if (!product) return res.status(404).json({ error: 'Product not found.' });
 
     // Related products
-    const related = await Product.find({
-      category: product.category._id,
-      _id: { $ne: product._id },
-      isActive: true
-    }).limit(6).select('name price images rating slug brand discount');
+ const related = product.category ? await Product.find({
+  category: product.category._id,
+  _id: { $ne: product._id },
+  isActive: true
+}).limit(6).select('name price images rating slug brand discount') : [];
 
     // Update recently viewed (if user is attached by optional auth)
     if (req.user) {
@@ -197,7 +197,7 @@ exports.getFeaturedProducts = async (req, res) => {
       .sort({ createdAt: -1 }).limit(8).select('name price images rating slug brand discount stock').populate('category', 'name');
     const bestSellers = await Product.find({ isActive: true })
       .sort({ sold: -1 }).limit(8).select('name price images rating slug brand discount stock').populate('category', 'name');
-    
+
     res.json({ success: true, featured, newArrivals, bestSellers });
   } catch (err) {
     res.status(500).json({ error: err.message });
